@@ -6,7 +6,7 @@ using Photon.Pun;
 using UnityEngine.SceneManagement;
 
 using TMPro;
-using UnityEditor.UIElements;
+
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
@@ -58,14 +58,12 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public void LeaveRoomPressed()
     {
         PhotonNetwork.LeaveRoom();
-
-        PhotonNetwork.JoinLobby();
     }
 
 
-    public override void OnJoinedLobby()
+    public override void OnLeftRoom()
     {
-        base.OnJoinedLobby();
+        base.OnLeftRoom();
         SceneManager.LoadScene("Lobby");
     }
 
